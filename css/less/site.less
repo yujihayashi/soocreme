@@ -1,0 +1,208 @@
+@primary-color: #ed3237; 
+@secondary-color: #fff91c;  
+@third-color: #0799d5;  
+/*
+FUNÇÕES PADRÕES START
+*********************************************************************/
+.border-radius(@style) {
+    -webkit-border-radius: @style;
+    -moz-border-radius: @style;
+    border-radius: @style;
+}
+.box-shadow(@style, @c) when (iscolor(@c)) {
+    -webkit-box-shadow: @style @c;
+    box-shadow:         @style @c;
+}
+.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+    .box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+
+.clear, .first{
+    clear:both;
+}
+/*********************************************************************
+FUNÇÕES PADRÕES END
+*/
+/*
+NON-RESPONSIVE START
+**********************************************************************************************/
+/* ALTERAR APENAS ESTAS VARIAVEIS DE ACORDO COM O PROJETO START */
+.container {max-width: none !important;width: 960px;}
+.navbar-nav > li > a {padding-top: 15px;padding-bottom:15px;}
+/* ALTERAR APENAS ESTAS VARIAVEIS DE ACORDO COM O PROJETO END */
+/* Finesse the page header spacing */.page-header {margin-bottom: 30px;}.page-header .lead {margin-bottom: 10px;}/* Non-responsive overrides** Utilitze the following CSS to disable the responsive-ness of the container,* grid system, and navbar.*//* Reset the container *//* Always float the navbar header */.navbar-header {float: left;}/* Undo the collapsing navbar */.navbar-collapse {display: block !important;height: auto !important;padding-bottom: 0;overflow: visible !important;}.navbar-toggle {display: none;}.navbar-collapse {border-top: 0;}.navbar-brand {margin-left: -15px;}/* Always apply the floated nav */.navbar-nav {float: left;margin: 0;}.navbar-nav > li {float: left;}/* Redeclare since we override the float above */.navbar-nav.navbar-right {float: right;}/* Undo custom dropdowns */.navbar .navbar-nav .open .dropdown-menu {position: absolute;float: left;background-color: #fff;border: 1px solid #cccccc;border: 1px solid rgba(0, 0, 0, 0.15);border-width: 0 1px 1px;border-radius: 0 0 4px 4px;-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);}.navbar-default .navbar-nav .open .dropdown-menu > li > a {color: #333;}.navbar .navbar-nav .open .dropdown-menu > li > a:hover,.navbar .navbar-nav .open .dropdown-menu > li > a:focus,.navbar .navbar-nav .open .dropdown-menu > .active > a,.navbar .navbar-nav .open .dropdown-menu > .active > a:hover,.navbar .navbar-nav .open .dropdown-menu > .active > a:focus {color: #fff !important;background-color: @primary-color !important;}.navbar .navbar-nav .open .dropdown-menu > .disabled > a,.navbar .navbar-nav .open .dropdown-menu > .disabled > a:hover,.navbar .navbar-nav .open .dropdown-menu > .disabled > a:focus {color: #999 !important;background-color: transparent !important;}
+/**********************************************************************************************
+NON-RESPONSIVE END
+*/
+::selection {background-color: @primary-color;color: #FFF;}
+::-moz-selection {background-color: @primary-color;color: #FFF;}
+small {display: inline-block;line-height: 1.1;}
+textarea {resize:vertical;}
+a, button  {transition: all 0.25s ease 0s;}
+/*
+FONTS START
+**********************************************************************************************/
+.cycle-nav, .btn, .extra-header .navbar-nav {font-family: 'GothamBlack', Arial, sans-serif;font-weight: normal;}
+.box-download {font-family: 'GothamUltra', Arial, sans-serif;font-weight: normal;}
+/**********************************************************************************************
+FONTS END
+*/
+/*
+ESTRUTURA START
+**********************************************************************************************/
+.extra-header, .extra-central, .extra-footer {min-width: 960px;}
+.extra-header {
+	background: url(../imagem/site/bg-header.jpg) no-repeat center top;
+	.site-header {height: 183px;}
+	.navbar {border:0;margin:0;.border-radius(0);}
+	.navbar-header {float: none;display: block;text-align: center;height: 128px;}
+	.navbar-brand {float: none;display: inline-block;padding:0;position: relative;margin-top:-24px;height:auto;}
+	.navbar-nav {
+		text-transform: uppercase;font-size: 16px;text-shadow:3px 3px 5px rgba(0, 0, 0, .75);float:none;text-align: center;width: 100%;
+		> li {
+			display: inline-block;float:none;
+			+ li {background: url(../imagem/site/bg-menu-item.png) no-repeat center left;padding-left:16px;}
+		}
+	}
+}
+.extra-central {
+	.site-central {}
+}
+.extra-footer {
+	position: relative;z-index: 4;
+	.site-footer {
+		.line-1 {
+			color: #813020;background: #ffcd3a;
+			.col-mid {text-align: center;line-height: 1.1;padding:20px 0;font-size: 13px;}
+			.col-right {text-align: right;}
+			.col-right, .col-left {padding-top:40px;}
+		}
+		.line-2 {
+			background: #0799d5 url(../imagem/site/bg-footer.jpg) repeat-x top;text-align: center;padding:20px 0;
+			&, a {color: #FFF;} 
+		}
+	}
+}
+.home {
+	.site-central {
+		position: relative;
+	}
+}
+/**********************************************************************************************
+ESTRUTURA END
+*/
+/*
+CLASSES START
+**********************************************************************************************/
+[class^='lista-'], [class^='lista-'], [class^='menu-'], [class^='menu-'] ul, .cycle-slideshow {list-style:none;margin-bottom:0;padding-left:0;}
+.btn {padding:10px 25px;font-size: 12px;text-transform: uppercase;}
+.btn-gray {background: #EEE;color:#C93F2A;}
+.btn-rounded {-webkit-border-radius: 150px;-moz-border-radius: 150px;border-radius: 150px;}
+
+.box-banner, .box-banner-bg {
+	&, .cycle-slideshow, .cycle-slideshow li {height: 327px;width: 100%;}
+}
+.box-banner {
+	position: relative;z-index: 3;
+	.title {color: @secondary-color;text-shadow:3px 3px 5px rgba(0, 0, 0, .75);margin-top:60px;}
+	.cycle-slideshow {position: relative;z-index: 1;}
+	> .container {position: relative;z-index: 2;}
+	.cycle-nav {left: 10px;top: 30px;position: absolute;}
+}
+.box-banner-bg {
+	position: absolute;left: 0;top: 0;right: 0;z-index: 1;background: #f0f0ef;
+	.cycle-slideshow {
+		li {background: no-repeat center top;}
+	}
+}
+.box-download {
+	position: absolute;z-index: 3;margin:0 auto;bottom:88px;left: 0;right: 0;text-align: center;font-size: 14px;text-transform: uppercase;color: #FFF;line-height: 1.2;
+	.title {font-size: 20px;color: #ffcd3a;display: block;}
+	.content {display: block;padding:35px 40px;}
+	&:hover {color: #ffcd3a;text-decoration: none;}
+}
+.box-home {
+	background: url(../imagem/site/bg-rampa.png) no-repeat center top;height: 717px;position: relative;z-index: 2;margin-top:-143px;padding:140px 0 0;
+	.box-mascotes {position: absolute;left: 82px;right: 0;bottom:30px;margin:0 auto;}
+}
+.box-chamadas {
+	color: #FFF;padding:15px 0 0;
+	.title {line-height: 1.2;}
+	.chamada-left {
+		.media {
+			.media-body {padding-right: 30px;}
+		}
+	}
+	.chamada-right {
+		.media {
+			.media-body {padding-left: 30px;}
+		}
+	}
+	.media-body {position: relative;z-index: 110;}
+}
+
+.cycle-nav {
+	span {
+		display: inline-block;cursor: pointer;width: 21px;height: 21px;.border-radius(50px);text-align: center;font-size: 12px;color: #084f6c;background: #ffd81e;padding:2px 0;
+		&.cycle-pager-active {background: #FFF;}
+		+ span {margin-left: 10px;}
+	}
+}
+
+.form-control {box-shadow:none;}
+.footer-link {
+	display: inline-block;.border-radius(50px);overflow: hidden;color: #FFF;text-align: center;
+	&, .text, .icon {height: 54px;}
+	.text, .icon {float: left;}
+	.text {
+		background: #55649b;line-height: 1;font-size: 13px;text-transform: uppercase;width: 128px;
+		.content {display: inline-block;max-width: 97%;vertical-align: middle;padding:0 10px;}
+	}
+	.space {margin-right: -5px;}
+	.icon {
+		background: #e3e4e4;width: 70px;
+		* {display: inline-block;vertical-align: middle;}
+	}
+	&.left {
+		.icon {float: right;}
+		&:hover {color: @third-color;}
+	}
+
+	&.right {
+		.icon {background: #ef373c;}
+		.text {background: #4f0000;}
+	}
+}
+
+.imagem {display: inline-block;overflow: hidden;max-width: 100%;}
+.imagem-rounded {-webkit-border-radius: 150px;-moz-border-radius: 150px;border-radius: 150px;}
+.inline-block {display:inline-block;}
+[class^='ycon-'], [class*='ycon-'] {background-repeat:no-repeat;vertical-align:middle;display:inline-block;background-image:url(../imagem/site/ycon.png);}
+
+.space {width:1%;display:inline-block;height:100%;vertical-align:middle;}
+.relative {position: relative;}
+/**********************************************************************************************
+CLASSES END
+*/
+/*
+JQUERY UI START
+**********************************************************************************************/
+
+/**********************************************************************************************
+JQUERY UI END
+*/
+@media print {
+
+}
+@media (max-width: 767px) {
+ /*    .site-geral:before {content:"TABLET";}*/
+}
+@media (max-width: 480px) {
+ /*#GERAL:before {content:"MOBILE";}*/
+}
+@media (min-width: 768px) and (max-width: 980px) {
+
+}
+@media (min-width: 981px) and (max-width: 1200px) {
+ /*#GERAL:before {content:"ACIMA DE TABLET";}*/
+}
